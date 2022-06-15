@@ -1,5 +1,6 @@
 from typing import List
 import json
+import collections
 
 class QnA:
     questions: List[str] = []
@@ -54,6 +55,9 @@ class QnA:
             else:
                 result = False
                 print(self.questions[i] + ' ' + '\033[41m' + 'NOT YET' + '\033[0m')
+        count = collections.Counter(self.answers)
+        print("passed_work/total_work : "
+         + str(count[1]) + '/' + str(len(self.answers)))
         return result
 
     def show_compliment(self):
